@@ -3,9 +3,12 @@ package com.jax.authentication.api.authentications;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -15,43 +18,57 @@ public class UserPrincipal implements UserDetails {
      *
      */
     private static final long serialVersionUID = 1L;
-    private String id;
 
     private Collection<? extends GrantedAuthority> authorities;
     private TokenUser tokenUser;
 
+    public UserPrincipal() {
+    }
+
+    public UserPrincipal(TokenUser tokenUser, Collection<? extends GrantedAuthority> authorities) {
+        this.tokenUser = tokenUser;
+        this.authorities = authorities;
+    }
+
+    public static UserPrincipal build(TokenUser tokenUser) {
+        List<GrantedAuthority> authorities = tokenUser.getRoles().stream()
+                .map(role -> new SimpleGrantedAuthority(role.name()))
+                .collect(Collectors.toList());
+        return new UserPrincipal(tokenUser, authorities);
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return authorities;
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return tokenUser.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return tokenUser.getUsername();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }
