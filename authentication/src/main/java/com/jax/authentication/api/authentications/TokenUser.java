@@ -1,4 +1,4 @@
-package com.jax.authentication.security;
+package com.jax.authentication.api.authentications;
 
 import lombok.Getter;
 import lombok.Setter;

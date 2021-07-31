@@ -1,4 +1,4 @@
-package com.jax.authentication.security;
+package com.jax.authentication.api.authentications;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

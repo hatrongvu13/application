@@ -1,4 +1,4 @@
-package com.jax.authentication.security;
+package com.jax.authentication.api.authentications;
 
 import lombok.Data;
 import lombok.SneakyThrows;
@@ -17,10 +17,10 @@ public class TokenKeyProvider {
 
     @Autowired
     @SneakyThrows
-    public TokenKeyProvider(@Value("${authentication.token.jwt.publicKey}") String publickey,
-                            @Value("${authentication.token.jwt.privateKey}") String privatekey) {
+    public TokenKeyProvider(@Value("${authentication.token.jwt.publicKey}") String publicKey,
+                            @Value("${authentication.token.jwt.privateKey}") String privateKey) {
 
-        this.privateKey = RSAUtils.getPrivateKeyFromString(privatekey);
-        this.publicKey = RSAUtils.getPublicKeyFromString(publickey);
+        this.privateKey = RSAUtils.getPrivateKeyFromString(privateKey);
+        this.publicKey = RSAUtils.getPublicKeyFromString(publicKey);
     }
 }
