@@ -6,6 +6,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,19 +22,34 @@ public class UserPrincipal implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
     private TokenUser tokenUser;
+    private String id;
 
     public UserPrincipal() {
+        super();
     }
 
     public UserPrincipal(TokenUser tokenUser, Collection<? extends GrantedAuthority> authorities) {
+        this.id = tokenUser.getId().toString();
         this.tokenUser = tokenUser;
         this.authorities = authorities;
     }
 
+    public static UserPrincipal create(TokenUser tokenUser) {
+        List<GrantedAuthority> authorities = tokenUser.getRoles().stream().map((scope) -> new SimpleGrantedAuthority(scope.getName().name())).collect(Collectors.toList());
+
+//        List<GrantedAuthority> authorities = Arrays.asList(new SimpleGrantedAuthority("USERS"));
+
+        return new UserPrincipal(
+                tokenUser,
+                authorities
+        );
+    }
+
     public static UserPrincipal build(TokenUser tokenUser) {
         List<GrantedAuthority> authorities = tokenUser.getRoles().stream()
-                .map(role -> new SimpleGrantedAuthority(role.name()))
+                .map(role -> new SimpleGrantedAuthority(role.getName().name()))
                 .collect(Collectors.toList());
+
         return new UserPrincipal(tokenUser, authorities);
     }
 

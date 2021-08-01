@@ -52,9 +52,11 @@ public class TokenProvider {
         UserPrincipal userPrincipal = new UserPrincipal();
         userPrincipal.setAuthorities(authorities);
         userPrincipal.setId(claims.getSubject());
+//        userPrincipal.setTokenUser((TokenUser) claims.get("userInfo"));
+
         userPrincipal.setTokenUser(new TokenUser());
-
-
+//
+//
         userPrincipal.getTokenUser().setUsername(EncryptionUtil.decryptWithPrefixIV((String) claims.get("username"),SK));
         userPrincipal.getTokenUser().setPassword(EncryptionUtil.decryptWithPrefixIV((String) claims.get("password"),SK));
         userPrincipal.getTokenUser().setMobile(EncryptionUtil.decryptWithPrefixIV((String) claims.get("mobile"),SK));
@@ -81,14 +83,14 @@ public class TokenProvider {
 //		String algorithm = "AES/CBC/PKCS5Padding";
 
 
-        Claims claims = Jwts.claims().setSubject(userPrincipal.getId());
+        Claims claims = Jwts.claims().setSubject(userPrincipal.getTokenUser().getId());
         claims.put("scopes",userPrincipal.getAuthorities().stream().map(s -> s.toString()).collect(Collectors.toList()));
-        claims.put("userInfo", userPrincipal.getTokenUser());
+//        claims.put("userInfo", userPrincipal.getTokenUser());
 
-//        claims.put("username", EncryptionUtil.encryptWithPrefixIV(userPrincipal.getTokenUser().getUsername(),SK,iv));
-//        claims.put("password", EncryptionUtil.encryptWithPrefixIV(userPrincipal.getTokenUser().getPassword(),SK,iv));
-//        claims.put("mobile", EncryptionUtil.encryptWithPrefixIV(userPrincipal.getTokenUser().getMobile(),SK,iv));
-//        claims.put("email", EncryptionUtil.encryptWithPrefixIV(userPrincipal.getTokenUser().getEmail(),SK,iv));
+        claims.put("username", EncryptionUtil.encryptWithPrefixIV(userPrincipal.getTokenUser().getUsername(),SK,iv));
+        claims.put("password", EncryptionUtil.encryptWithPrefixIV(userPrincipal.getTokenUser().getPassword(),SK,iv));
+        claims.put("mobile", EncryptionUtil.encryptWithPrefixIV(userPrincipal.getTokenUser().getMobile(),SK,iv));
+        claims.put("email", EncryptionUtil.encryptWithPrefixIV(userPrincipal.getTokenUser().getEmail(),SK,iv));
 
         String token = Jwts.builder()
                 .setClaims(claims)

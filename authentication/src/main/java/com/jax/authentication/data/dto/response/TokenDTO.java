@@ -1,4 +1,4 @@
-package com.jax.authentication.api.authentications;
+package com.jax.authentication.data.dto.response;
 
 import lombok.Data;
 
@@ -9,4 +9,5 @@ public class TokenDTO {
     public TokenDTO(String token) {
         this.token = token;
     }
+
 }

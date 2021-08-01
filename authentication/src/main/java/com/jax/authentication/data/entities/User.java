@@ -35,7 +35,7 @@ public class User {
     private String mobile;
 
     @DBRef
-    private Set<ERole> roles;
+    private Set<Roles> roles;
 
     @CreatedDate
     private LocalDateTime createdDate;

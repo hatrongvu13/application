@@ -1,5 +1,6 @@
 package com.jax.authentication.api.authentications;
 
+import com.jax.authentication.data.entities.Roles;
 import com.jax.authentication.data.entities.User;
 import com.jax.authentication.data.enums.ERole;
 import lombok.Getter;
@@ -9,12 +10,13 @@ import java.util.Set;
 
 @Getter
 @Setter
-public class TokenUser extends User {
+public class TokenUser{
 
-//    private String username;
-//    private String password;
-//    private String email;
-//    private String mobile;
-//    private Set<ERole> roles;
+    private String id;
+    private String username;
+    private String password;
+    private String email;
+    private String mobile;
+    private Set<Roles> roles;
 
 }

@@ -17,11 +17,11 @@ server:
     include-stacktrace: always
     include-exception: true
   servlet:
-    context-path: /horoscope
+    context-path: /auth
 
 spring:
   data:
     mongodb:
-      uri: mongodb://horoscope_dev:uyTzqcfS5jX7ad85@207.46.234.134:27717/horoscope_dev
-      database: horoscope_dev
+      uri: mongodb://root:root@127.0.0.1:27017/authentication
+      database: authentication
       auto-index-creation: true

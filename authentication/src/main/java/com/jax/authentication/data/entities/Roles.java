@@ -19,9 +19,9 @@ public class Roles {
 
     private ERole name;
 
-    @CreatedDate
-    private LocalDateTime createdDate;
-
-    @LastModifiedDate
-    private LocalDateTime updatedDate;
+//    @CreatedDate
+//    private LocalDateTime createdDate;
+//
+//    @LastModifiedDate
+//    private LocalDateTime updatedDate;
 }
