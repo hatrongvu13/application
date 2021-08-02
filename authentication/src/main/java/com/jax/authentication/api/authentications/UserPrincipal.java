@@ -24,15 +24,6 @@ public class UserPrincipal implements UserDetails {
     private Collection<? extends GrantedAuthority> authorities;
     private TokenUser tokenUser;
 
-//	public UserPrincipal(String id, String name, Collection<? extends GrantedAuthority> authorities, String email, String schoolId) {
-//		super();
-//		this.id = id;
-//		this.name = name;
-//		this.authorities = authorities;
-//		this.email = email;
-//		this.schoolId = schoolId;
-//	}
-
     public UserPrincipal(TokenUser tokenUser, Collection<? extends GrantedAuthority> authorities) {
         super();
 
@@ -46,11 +37,13 @@ public class UserPrincipal implements UserDetails {
 
 
     public static UserPrincipal create(TokenUser tokenUser) {
-//        List<GrantedAuthority> authorities = tokenUser.getAuthorities().stream().map((scope) -> new SimpleGrantedAuthority(scope.getName().name())).collect(Collectors.toList());
+        List<GrantedAuthority> authorities = tokenUser
+                .getAuthorities()
+                .stream()
+                .map((scope) -> new SimpleGrantedAuthority(scope.getName().name())).collect(Collectors.toList());
 
 //        List<GrantedAuthority> authorities = Arrays.asList(new SimpleGrantedAuthority("USERS"));
-        List<GrantedAuthority> authorities = Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
-//        List<GrantedAuthority> authorities = Arrays.asList(new SimpleGrantedAuthority("EDITOR"));
+//        List<GrantedAuthority> authorities = Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
 
         return new UserPrincipal(
                 tokenUser,

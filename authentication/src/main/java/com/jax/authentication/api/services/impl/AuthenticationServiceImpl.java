@@ -25,7 +25,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         roles.add(r);
 
         TokenUser tokenUser = new TokenUser();
-        tokenUser.setCif("1235");
+        tokenUser.setCif("");
         tokenUser.setEmail("admin@gmail.com");
         tokenUser.setDob("Dob");
         tokenUser.setFullname("nguyen van a");
