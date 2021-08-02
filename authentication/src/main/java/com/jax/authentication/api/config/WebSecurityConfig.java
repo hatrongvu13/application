@@ -76,7 +76,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/actuator/**",
                         "/swagger-resources/**",
                         "/swagger-ui/",
-                        "/test/",
+                        "/test/**",
                         "/authentication/login"
 //	                        "/authentication/active",
 //	                        "/authentication/register",
