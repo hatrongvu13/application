@@ -30,7 +30,8 @@ public class SwaggerConfig {
 
     @Bean
     public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2).useDefaultResponseMessages(false).apiInfo(getApiInfo()).select().apis(RequestHandlerSelectors.basePackage("com.jax.authentication.api.controller"))
+        return new Docket(DocumentationType.SWAGGER_2).useDefaultResponseMessages(false).apiInfo(getApiInfo()).select()
+                .apis(RequestHandlerSelectors.basePackage("com.jax.authentication.api.controller"))
                 .paths(PathSelectors.any()).build().securitySchemes(securitySchemes())
                 .securityContexts(securityContexts());
     }
