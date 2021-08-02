@@ -25,9 +25,6 @@ public class SwaggerConfig {
     @Autowired
     ServletContext servletContext;
 
-//	@Value("${swagger.host}")
-//	private String host;
-
     @Value("${swagger.basePath:/}")
     private String basePath;
 
@@ -46,13 +43,6 @@ public class SwaggerConfig {
                 .build();
     }
 
-//    private Set<String> protocols() {
-//		Set<String> protocols = new HashSet<>();
-//		protocols.add("http");
-//		protocols.add("https");
-//		return protocols;
-//	}
-
     private List<SecurityScheme> securitySchemes() {
         List<SecurityScheme> authorizationTypes = Arrays.asList(new ApiKey("token", "Authorization", "header"));
         return authorizationTypes;
@@ -63,12 +53,6 @@ public class SwaggerConfig {
                 .securityReferences(defaultAuth()).build());
         return securityContexts;
     }
-
-//	private List<SecurityReference> securityReferences() {
-//		List<SecurityReference> securityReferences = Arrays
-//				.asList(SecurityReference.builder().reference("token").scopes(new AuthorizationScope[0]).build());
-//		return securityReferences;
-//	}
 
     private List<SecurityReference> defaultAuth() {
         AuthorizationScope authorizationScope = new AuthorizationScope(
