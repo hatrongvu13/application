@@ -1,7 +1,5 @@
 package com.jax.authentication.api.config;
 
-import com.jax.authentication.api.authentications.JwtAuthentication;
-import com.jax.authentication.api.authentications.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,6 +1,5 @@
 package com.jax.authentication.data.entities;
 
-import com.jax.authentication.data.enums.ERole;
 import lombok.Data;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.CreatedDate;
@@ -15,7 +14,7 @@ import java.time.LocalDateTime;
 import java.util.Set;
 
 @Data
-@Document(collection = "user")
+@Document(collection = "users")
 public class User {
 
     @Id
