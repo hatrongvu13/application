@@ -24,7 +24,6 @@ public class EncryptionUtil {
     private static final String ENCRYPT_ALGO = "AES/GCM/NoPadding";
     private static final int TAG_LENGTH_BIT = 128;
     private static final int IV_LENGTH_BYTE = 16;
-//	private static final int AES_KEY_BIT = 256;
 
     private static final Charset UTF_8 = StandardCharsets.UTF_8;
 
@@ -93,29 +92,5 @@ public class EncryptionUtil {
         return plainText;
 
     }
-
-//public static String encrypt(String algorithm, String input, SecretKey key,
-//    IvParameterSpec iv) throws NoSuchPaddingException, NoSuchAlgorithmException,
-//    InvalidAlgorithmParameterException, InvalidKeyException,
-//    BadPaddingException, IllegalBlockSizeException {
-//
-//    Cipher cipher = Cipher.getInstance(algorithm);
-//    cipher.init(Cipher.ENCRYPT_MODE, key, iv);
-//    byte[] cipherText = cipher.doFinal(input.getBytes());
-//    return Base64.getEncoder()
-//        .encodeToString(cipherText);
-//}
-//
-//public static String decrypt(String algorithm, String cipherText, SecretKey key,
-//    IvParameterSpec iv) throws NoSuchPaddingException, NoSuchAlgorithmException,
-//    InvalidAlgorithmParameterException, InvalidKeyException,
-//    BadPaddingException, IllegalBlockSizeException {
-//
-//    Cipher cipher = Cipher.getInstance(algorithm);
-//    cipher.init(Cipher.DECRYPT_MODE, key, iv);
-//    byte[] plainText = cipher.doFinal(Base64.getDecoder()
-//        .decode(cipherText));
-//    return new String(plainText);
-//}
 
 }

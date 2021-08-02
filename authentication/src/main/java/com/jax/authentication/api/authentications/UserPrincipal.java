@@ -35,22 +35,16 @@ public class UserPrincipal implements UserDetails {
     }
 
     public static UserPrincipal create(TokenUser tokenUser) {
-        List<GrantedAuthority> authorities = tokenUser.getRoles().stream().map((scope) -> new SimpleGrantedAuthority(scope.getName().name())).collect(Collectors.toList());
+//        List<GrantedAuthority> authorities = tokenUser.getRoles().stream().map((scope) -> new SimpleGrantedAuthority(scope.getName().name())).collect(Collectors.toList());
 
 //        List<GrantedAuthority> authorities = Arrays.asList(new SimpleGrantedAuthority("USERS"));
+
+        List<GrantedAuthority> authorities = tokenUser.getRoles().stream().map( r -> new SimpleGrantedAuthority(r.getName().name())).collect(Collectors.toList());
 
         return new UserPrincipal(
                 tokenUser,
                 authorities
         );
-    }
-
-    public static UserPrincipal build(TokenUser tokenUser) {
-        List<GrantedAuthority> authorities = tokenUser.getRoles().stream()
-                .map(role -> new SimpleGrantedAuthority(role.getName().name()))
-                .collect(Collectors.toList());
-
-        return new UserPrincipal(tokenUser, authorities);
     }
 
     @Override

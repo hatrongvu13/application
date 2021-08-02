@@ -41,8 +41,6 @@ public class TokenProvider {
     public UserPrincipal getUserPrincipalFromJWT(String token) {
 
         SecretKey SK = EncryptionUtil.getKeyFromPassword(encryptPassword,salt);
-//		IvParameterSpec iv = EncryptionUtil.generateIv();
-//		String algorithm = "AES/CBC/PKCS5Padding";
 
 
         Claims claims = this.decodeJWT(token);
@@ -52,11 +50,9 @@ public class TokenProvider {
         UserPrincipal userPrincipal = new UserPrincipal();
         userPrincipal.setAuthorities(authorities);
         userPrincipal.setId(claims.getSubject());
-//        userPrincipal.setTokenUser((TokenUser) claims.get("userInfo"));
 
         userPrincipal.setTokenUser(new TokenUser());
-//
-//
+
         userPrincipal.getTokenUser().setUsername(EncryptionUtil.decryptWithPrefixIV((String) claims.get("username"),SK));
         userPrincipal.getTokenUser().setPassword(EncryptionUtil.decryptWithPrefixIV((String) claims.get("password"),SK));
         userPrincipal.getTokenUser().setMobile(EncryptionUtil.decryptWithPrefixIV((String) claims.get("mobile"),SK));
@@ -76,16 +72,12 @@ public class TokenProvider {
     @SneakyThrows
     public String issueToken(UserPrincipal userPrincipal)  {
 
-//		UUID tokenUUID = UUID.randomUUID();
-
         SecretKey SK = EncryptionUtil.getKeyFromPassword(encryptPassword,salt);
         byte[] iv = EncryptionUtil.getRandomNonce();
-//		String algorithm = "AES/CBC/PKCS5Padding";
 
 
         Claims claims = Jwts.claims().setSubject(userPrincipal.getTokenUser().getId());
         claims.put("scopes",userPrincipal.getAuthorities().stream().map(s -> s.toString()).collect(Collectors.toList()));
-//        claims.put("userInfo", userPrincipal.getTokenUser());
 
         claims.put("username", EncryptionUtil.encryptWithPrefixIV(userPrincipal.getTokenUser().getUsername(),SK,iv));
         claims.put("password", EncryptionUtil.encryptWithPrefixIV(userPrincipal.getTokenUser().getPassword(),SK,iv));
