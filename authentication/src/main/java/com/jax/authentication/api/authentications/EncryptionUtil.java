@@ -60,7 +60,7 @@ public class EncryptionUtil {
 
     }
 
-    public static String encryptWithPrefixIV(String pText, javax.crypto.SecretKey secret, byte[] iv) throws Exception {
+    public static String encryptWithPrefixIV(String pText, SecretKey secret, byte[] iv) throws Exception {
 
         byte[] cipherText = encrypt(pText.getBytes(), secret, iv);
 
