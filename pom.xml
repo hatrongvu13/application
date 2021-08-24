@@ -7,10 +7,17 @@
     <groupId>org.jax</groupId>
     <artifactId>application</artifactId>
     <version>1.0</version>
+    <name>application</name>
+    <packaging>pom</packaging>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
+    <modules>
+        <module>./authorization</module>
+        <module>./bot</module>
+        <module>./file</module>
+    </modules>
 
 </project>

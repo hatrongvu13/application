@@ -1,0 +1,44 @@
+authentication:
+  token:
+    jwt:
+      publickey: MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAwtmj3jPo3Mphg9V5tBq8PPYZgmdCoc5OyIAeeRJAEQQPRD7sdoRWH+fiT8mQlG/jZ4GT3flVZO9ZK/E823sTmY/hlR3nI1iJx4LKTLlGNoPER7zcB4ar25ngSvrnpXXsdXGe9VuduGgb6xwFETEoQMwiuwC+Nj96fCcwoIVRkbXckNOkqc7SVLQle0S3wUfXgmkleP/4G2I8AMsVUb08qCmywrbh0ciFAgRwUEgkmoq82CW3Ot/vHVwEQnqdWycywympJtjoSlX8HrzdLHybr/1uwMohYMIyE2M2X63PnhWywuOIBwRYobpaTnULsHUvdhnZ2rsOY6sdG4WJDOLv6snDTIpXa4Ple6Z+XEFeS3BPDsE9T94Jk1d1R+RUyazVzE5YLfmNbLU/mavi2oHqPltfGkWGheZl2YbTYj1wCnklzE0T2OPW2Yig0ZJWQZoyM4u1sJNcXpfrPzqqprJn2tLiPyOW4ruO+gWDuW+RJlb5VQDhujm3laTcX5Y2egHfAgMBAAE=
+      privatekey: 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
+      expire: 600
+    encrypt:
+      password: XzSUfM33EM5nz6LU
+      salt: LrPh2RGzTd9vRZNW
+
+server:
+  error:
+    include-binding-errors: always
+    whitelabel.enabled: false
+    include-message: always
+    include-stacktrace: always # show trace in message response
+    include-exception: true
+  servlet:
+    context-path: /oathor
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://mongo:1Enzj24UfThKice7Jh0e@containers-us-west-10.railway.app:6928
+      database: authen
+      auto-index-creation: true
+      encryt:
+        key:
+  redis:
+    host: redis://default:xwekTm3y1TFvgDutK1v2@containers-us-west-10.railway.app:7386
+#    port: 7386
+    ssl: true
+    timeout: 360
+    database: 0
+    jedis:
+      pool:
+        max-idle: 30
+        min-idle: 30
+    token:
+      timeout: 3600
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 20MB
