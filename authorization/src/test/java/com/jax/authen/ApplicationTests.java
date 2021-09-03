@@ -1,10 +1,10 @@
-package com.jax.file;
+package com.jax.authen;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FileApplicationTests {
+class ApplicationTests {
 
     @Test
     void contextLoads() {

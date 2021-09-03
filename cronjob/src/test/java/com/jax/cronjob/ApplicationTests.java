@@ -1,10 +1,10 @@
-package com.jax.authen;
+package com.jax.cronjob;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AuthenApplicationTests {
+class ApplicationTests {
 
     @Test
     void contextLoads() {

@@ -1,13 +1,13 @@
-package com.jax.authen;
+package com.jax.file;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AuthenApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(AuthenApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }

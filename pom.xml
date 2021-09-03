@@ -6,7 +6,7 @@
 
     <groupId>org.jax</groupId>
     <artifactId>application</artifactId>
-    <version>1.0</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>application</name>
     <packaging>pom</packaging>
 
@@ -17,6 +17,7 @@
     <modules>
         <module>./authorization</module>
         <module>./bot</module>
+        <module>./cronjob</module>
         <module>./file</module>
     </modules>
 

@@ -1,3 +1,4 @@
+# jwt
 authentication:
   token:
     jwt:
@@ -8,6 +9,7 @@ authentication:
       password: XzSUfM33EM5nz6LU
       salt: LrPh2RGzTd9vRZNW
 
+# server
 server:
   error:
     include-binding-errors: always
@@ -17,7 +19,7 @@ server:
     include-exception: true
   servlet:
     context-path: /oathor
-
+# data
 spring:
   data:
     mongodb:
