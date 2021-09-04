@@ -23,14 +23,14 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://mongo:1Enzj24UfThKice7Jh0e@containers-us-west-10.railway.app:6928
+      uri: mongodb://root:root@localhost:27017
       database: authen
       auto-index-creation: true
       encryt:
         key:
   redis:
-    host: redis://default:xwekTm3y1TFvgDutK1v2@containers-us-west-10.railway.app:7386
-#    port: 7386
+    host: 127.0.0.1
+    port: 6379
     ssl: true
     timeout: 360
     database: 0
@@ -42,5 +42,10 @@ spring:
       timeout: 3600
   servlet:
     multipart:
-      max-file-size: 50MB
-      max-request-size: 20MB
+      max-file-size: 1000MB
+      max-request-size: 1000MB
+# telegram bot
+telegramBot:
+  token:
+  chatId:
+  importChatId:
