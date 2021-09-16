@@ -5,14 +5,12 @@ import com.jax.bot.data.request.MessageRequest;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
 @RestController
+@CrossOrigin(value = "*", maxAge = 3600)
 @RequestMapping(value = "/telegram", produces = MediaType.APPLICATION_JSON_VALUE)
 @Api(tags = "Telegram bot controller")
 public class TelegramTestController {
