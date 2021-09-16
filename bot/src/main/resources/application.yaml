@@ -47,5 +47,6 @@ spring:
 # telegram bot
 telegramBot:
   token:
-  chatId: -560942718
+#  chatId: -560942718
+  chatId: -490615408
   importChatId:
